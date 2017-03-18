@@ -68,4 +68,9 @@ public class BottomNavigationActivity extends AppCompatActivity {
         Intent intent = new Intent(this, EventDetailActivity.class);
         startActivity(intent);
     }
+
+    public void userDetail (View view) {
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
+    }
 }
