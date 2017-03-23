@@ -1,33 +1,34 @@
-package com.demo.eventapp;
+package com.demo.eventapp.profile;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.demo.eventapp.OneFragment;
+
 /**
  * Created by mrli on 3/17/2017.
  */
 
-public class TabFragmentAdapter extends FragmentPagerAdapter {
+public class ProfilePagerAdapter extends FragmentPagerAdapter {
 
-    final int PAGE_COUNT = 3;
     private String tabTitles[] = new String[] { "Posts", "Comments", "Tab3" };
     private Context context;
 
-    public TabFragmentAdapter(FragmentManager fm, Context context) {
+    public ProfilePagerAdapter(FragmentManager fm, Context context) {
         super(fm);
         this.context = context;
     }
 
     @Override
-    public int getCount() {
-        return PAGE_COUNT;
+    public Fragment getItem(int position) {
+        return OneFragment.newInstance(position + 1);
     }
 
     @Override
-    public Fragment getItem(int position) {
-        return OneFragment.newInstance(position + 1);
+    public int getCount() {
+        return tabTitles.length;
     }
 
     @Override

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#00000000"
+        android:id="@+id/linearLayout">
+
+        <EditText
+            android:id="@+id/edit_post"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:hint="@string/type_post"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:inputType="textCapSentences|textAutoCorrect|textMultiLine"
+            android:lines="1"
+            android:maxLength="144"/>
+
+        <ImageButton
+            android:id="@+id/post_msg"
+            android:layout_width="5dp"
+            android:layout_height="38dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_weight="1"
+            android:onClick="onPost"
+            android:adjustViewBounds="true"
+            android:background="#00000000"
+            android:scaleType="centerCrop"
+            android:src="@drawable/comment" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:background="#00000000"
+        android:id="@+id/post_menu">
+        <Button
+            android:id="@+id/chat_latest"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:background="#00000000"
+            android:onClick="chatMenuSwitch"
+            android:textStyle="bold"
+            android:text="Lastest"/>
+        <Button
+            android:id="@+id/chat_popular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:background="#00000000"
+            android:onClick="chatMenuSwitch"
+            android:text="Popular"/>
+        <Button
+            android:id="@+id/chat_my"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:background="#00000000"
+            android:onClick="chatMenuSwitch"
+            android:text="My Chats"/>
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/broadcast_msgs_view"
+        android:layout_width="368dp"
+        android:layout_height="0dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/post_menu" />
+
+</android.support.constraint.ConstraintLayout>
