@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,7 +42,7 @@ public class BroadCastMsgsAdapter extends RecyclerView.Adapter<BroadCastMsgsAdap
         protected TextView userName_text;
         protected TextView datetime_text;
         protected TextView content;
-
+        protected ImageButton btn_like;
 
         public ViewHolder(View v){
             super(v);
@@ -50,10 +51,13 @@ public class BroadCastMsgsAdapter extends RecyclerView.Adapter<BroadCastMsgsAdap
             userName_text = (TextView) cardView.findViewById(R.id.broadcast_username);
             datetime_text  = (TextView) cardView.findViewById(R.id.datetime);
             content  = (TextView) cardView.findViewById(R.id.broadcast_content);
+            btn_like = (ImageButton) cardView.findViewById(R.id.thumb_up);
 
+            btn_like.setOnClickListener(this);
             content.setOnClickListener(this);
             profile_image.setOnClickListener(this);
             cardView.setOnClickListener(this);
+
         }
 
         @Override
@@ -64,6 +68,9 @@ public class BroadCastMsgsAdapter extends RecyclerView.Adapter<BroadCastMsgsAdap
                     break;
                 case R.id.broadcast_content:
                     launchEventDetail(view);
+                    break;
+                case R.id.thumb_up:
+                    btn_like.setSelected(!btn_like.isSelected());
                     break;
             }
         }
@@ -78,9 +85,14 @@ public class BroadCastMsgsAdapter extends RecyclerView.Adapter<BroadCastMsgsAdap
         private void launchEventDetail(View view) {
             //BroadcastMsg item = (BroadcastMsg) view.getTag();
             Intent intent = new Intent(view.getContext(), EventDetailActivity.class);
+            if (btn_like.isSelected()) {
+                intent.putExtra("liked", true);
+            }
             intent.putExtra("event_id", (int) view.getTag());
             view.getContext().startActivity(intent);
         }
+
+
     }
 
     @Override

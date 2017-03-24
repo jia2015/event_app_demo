@@ -62,7 +62,7 @@
             android:id="@+id/thumb_up"
             android:layout_width="31dp"
             android:layout_height="31dp"
-            android:src="@drawable/thumb_up"
+            android:src="@drawable/like_button_selector"
             android:layout_marginLeft="0dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
